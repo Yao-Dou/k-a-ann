@@ -974,7 +974,7 @@
         "response": "The self-disclosure span \"just turned 32 last month\" is clear on its own. \n\nImplications:\n1. The poster recently celebrated their birthday.\n2. The poster's age is 32.\n3. The poster's birth month is the month prior to the current month.\n\nGoogle search query: <query>number of people who turned 32 last month</query>",
         "query": "number of people who turned 32 last month",
         "searchable_response": "This query is seeking a specific and quantifiable piece of information: the number of people who turned 32 last month. It is asking for a factual and well-documented statistic. Therefore, the query is highly searchable.",
-        "searchable_category": NaN
+        "searchable_category": "NaN"
     },
     "19": {
         "post_link": "https://www.reddit.com/r/dating_advice/comments/zyfh0s/why_is_it_people_only_seem_to_want_to_sleep_with/",
