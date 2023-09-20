@@ -19,6 +19,7 @@ const app = Vue.createApp({
             correctedQuery: null,
             aiEstimation: null,
             finalEstimation: null,
+            estConfidence: null,
             referenceLinks: [],
             nextLinkId: 0, // increment this each time you add a link
             briefExplanation: '',
@@ -91,6 +92,7 @@ const app = Vue.createApp({
                 correctedQuery: this.correctedQuery,
                 aiEstimation: this.aiEstimation,
                 finalEstimation: this.finalEstimation,
+                estConfidence: this.estConfidence,
                 referenceLinks: this.referenceLinks,
                 briefExplanation: this.briefExplanation,
             };
@@ -121,6 +123,7 @@ const app = Vue.createApp({
             this.correctedQuery = annotations.correctedQuery || null;
             this.aiEstimation = annotations.aiEstimation || null;
             this.finalEstimation = annotations.finalEstimation || null;
+            this.estConfidence = annotations.estConfidence || null;
             this.referenceLinks = annotations.referenceLinks || [];
             this.briefExplanation = annotations.briefExplanation || '';
         },
@@ -141,6 +144,7 @@ const app = Vue.createApp({
             this.correctedQuery = annotations.correctedQuery || null;
             this.aiEstimation = annotations.aiEstimation || null;
             this.finalEstimation = annotations.finalEstimation || null;
+            this.estConfidence = annotations.estConfidence || null;
             this.referenceLinks = annotations.referenceLinks || [];
             this.briefExplanation = annotations.briefExplanation || '';
         },
@@ -230,6 +234,7 @@ const app = Vue.createApp({
                             correctedQuery: null,
                             aiEstimation: null,
                             finalEstimation: null,
+                            estConfidence: null,
                             referenceLinks: [],
                             briefExplanation: '',
                         }

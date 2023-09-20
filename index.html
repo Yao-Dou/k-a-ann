@@ -149,9 +149,29 @@
                                 </p>
                                 <input type="text" v-model="finalEstimation" placeholder="Enter final estimation">
                             </div>
+
+                            <div class="question" key="q5">
+                                <p class="mt3 mb1 fw4">
+                                    How confident are you about the final estimation?
+                                </p>
+                                <div class="radio-container">
+                                    <div class="radio-option">
+                                        <input type="radio" id="confidence-1" value="1" v-model="estConfidence" class="mr1">
+                                        <label for="confidence-1">Little, a guess</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="confidence-2" value="2" v-model="estConfidence" class="mr1">
+                                        <label for="confidence-2">Moderate</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="confidence-3" value="3" v-model="estConfidence" class="mr1">
+                                        <label for="confidence-3">High, with evidence</label>
+                                    </div>
+                                </div> 
+                            </div>
                             
                             <!-- Fifth Question -->
-                            <div class="question" v-if="aiEstimation === 'No'" :key="'q5-' + aiEstimation">
+                            <div class="question" v-if="aiEstimation === 'No'" :key="'q6-' + aiEstimation">
                                 <div class="flex items-baseline mb1">
                                     <p class="mt3 mb1 fw4 mr2">
                                         Reference Links
@@ -170,8 +190,8 @@
                                 </transition-group>                                
                             </div>
 
-                            <!-- Final Question -->
-                            <div class="question" v-if="aiEstimation === 'No'" :key="'q6-' + aiEstimation">
+                            <!-- Fifth Question -->
+                            <div class="question" v-if="aiEstimation === 'No'" :key="'q7-' + aiEstimation">
                                 <p class="mt3 mb1 fw4">
                                     Brief Explanation
                                 </p>
