@@ -27,7 +27,7 @@
             <div class="mt1 flex">
                 <div class="mb3 tc f3 w-20 mt1 hit-selector">
                     <button @click="go_to_hit(current_hit - 1)" class="mid-gray br-100 pa1 bw0 bg-near-white pointer prev-next-btns">&nbsp;&lt;&nbsp;</button>
-                    <span>&nbsp;{{current_hit + 1}}</span> / <span>{{total_hits}}&nbsp;</span>
+                    <span>&nbsp;Hit {{current_hit + 1}}</span> / <span>{{total_hits}}&nbsp;</span>
                     <button @click="go_to_hit(current_hit + 1)" class="mid-gray br-100 pa1 bw0 bg-near-white pointer prev-next-btns">&nbsp;&gt;&nbsp;</button>
                 </div>
                 <div class="w-70 mr3 tc">
@@ -51,7 +51,7 @@
                         <div class="bg-white pa3 br1">
                             <div class="cf">
                                 <p class="fl mt0 mb1 f3 fw3">
-                                    Hit
+                                    Instance
                                 </p>
                                 <div class="fr">
                                     <i @click="bookmark_this_hit" class="bookmark fa-regular fa-bookmark fa-lg pointer ml1"></i>
@@ -195,7 +195,7 @@
                                 <p class="mt3 mb1 fw4">
                                     Brief Explanation
                                 </p>
-                                <textarea v-model="briefExplanation" placeholder="Enter your brief explanation here" rows="4" cols="50" class="w-100"></textarea>
+                                <textarea v-model="briefExplanation" placeholder="Enter your brief explanation on how you get the estimation here" rows="4" cols="50" class="w-100"></textarea>
                             </div>
 
                         </transition-group>

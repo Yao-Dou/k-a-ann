@@ -106,7 +106,9 @@ const app = Vue.createApp({
 
             let urlParams = new URLSearchParams(window.location.search);
             let data_path = urlParams.get('data');
-            localStorage.setItem(`hits_data_${data_path}`, JSON.stringify(this.hits_data));
+            let annotator_name = urlParams.get('name')
+
+            localStorage.setItem(`hits_data_${data_path}_${annotator_name}`, JSON.stringify(this.hits_data));
         },
         go_to_hit(hit_num) {
             if (hit_num > this.total_hits - 1) {
@@ -160,10 +162,11 @@ const app = Vue.createApp({
                         this.hits_data = jsonData;
         
                         let urlParams = new URLSearchParams(window.location.search);
+                        let annotator_name = urlParams.get('name')
                         let data_path = urlParams.get('data');
         
                         // Reset the cache with the new hits_data
-                        localStorage.setItem(`hits_data_${data_path}`, JSON.stringify(this.hits_data));
+                        localStorage.setItem(`hits_data_${data_path}_${annotator_name}`, JSON.stringify(this.hits_data));
                         
                         this.refreshVariables();  // Refresh other variables
                     } catch (error) {
@@ -177,9 +180,10 @@ const app = Vue.createApp({
         handle_file_download() {
             let urlParams = new URLSearchParams(window.location.search);
             let data_path = urlParams.get('data');
+            let annotator_name = urlParams.get('name')
+
             // remove .json
-            data_path = data_path.slice(0, -5);
-            const filename = `${data_path}_annotations.json`;
+            const filename = `${data_path}_${annotator_name}_annotations.json`;
             
             console.log(this.hits_data[this.current_hit_id].annotations)
             const blob = new Blob([JSON.stringify(this.hits_data, null, 2)], { type: "application/json" });
@@ -197,16 +201,17 @@ const app = Vue.createApp({
     created: function () {
         let urlParams = new URLSearchParams(window.location.search);
         let data_path = urlParams.get('data');
+        let annotator_name = urlParams.get('name')
 
         // Try loading hits_data from localStorage first
-        let cachedData = localStorage.getItem(`hits_data_${data_path}`);
+        let cachedData = localStorage.getItem(`hits_data_${data_path}_${annotator_name}`);
         if (cachedData) {
             this.hits_data = JSON.parse(cachedData);
             this.refreshVariables();
             return;
         }
 
-        fetch(`https://raw.githubusercontent.com/Yao-Dou/k-a-ann/main/data/${data_path}`)
+        fetch(`https://raw.githubusercontent.com/Yao-Dou/k-a-ann/main/data/${data_path}/${annotator_name}.json`)
             .then(r => r.json())
             .then(json => {
 
@@ -241,7 +246,7 @@ const app = Vue.createApp({
                     }
                 }
 
-                localStorage.setItem(`hits_data_${data_path}`, JSON.stringify(this.hits_data));
+                localStorage.setItem(`hits_data_${data_path}_${annotator_name}`, JSON.stringify(this.hits_data));
                 this.refreshVariables(); // Refresh other variables
             });
     },
